@@ -38,6 +38,22 @@ detects the type from that folder and deploys only that folder.
 
 A push only redeploys the environments whose folder it changed.
 
+## Variants
+
+Folders named `<type>-<variant>` deploy as the same type but take a different path through
+detection or the deploy script, so those branches get exercised too.
+
+| Folder | Environment type | What it covers |
+|---|---|---|
+| `nextjs-pnpm` | Next.js | pnpm lockfile branch of the Next.js deploy task |
+| `vite-yarn` | Vite | Yarn 4 (Corepack) lockfile branch |
+| `node-bun` | Node.js | Bun lockfile branch, app without a build script |
+| `fastapi-uv` | FastAPI | `pyproject.toml` + `uv.lock` instead of `requirements.txt` |
+| `wordpress-bedrock` | WordPress | detection through Bedrock's `composer.lock` |
+| `static-hugo` | Static Site | Hugo pinned in `go.mod`, built through npm (`hugo-extended`) into `public/` |
+| `laravel-octane` | Laravel | Octane detection and the FrankenPHP app server |
+| `laravel-horizon` | Laravel | Horizon detection and its daemon |
+
 ## Adding a type
 
 Add a folder named after the environment type key, make `/` render the placeholder page with the
