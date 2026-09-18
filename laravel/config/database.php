@@ -60,7 +60,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 
@@ -80,7 +80,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 
@@ -97,6 +97,21 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => env('DB_SSLMODE', 'prefer'),
+        ],
+
+        'pgsql_activitylog' => [
+            'driver' => env('DB_ACTIVITYLOG_CONNECTION', env('DB_CONNECTION', 'pgsql')),
+            'url' => env('DB_ACTIVITYLOG_URL', env('DB_URL')),
+            'host' => env('DB_ACTIVITYLOG_HOST', env('DB_HOST', '127.0.0.1')),
+            'port' => env('DB_ACTIVITYLOG_PORT', env('DB_PORT', '5432')),
+            'database' => env('DB_ACTIVITYLOG_DATABASE', env('DB_DATABASE', 'laravel')),
+            'username' => env('DB_ACTIVITYLOG_USERNAME', env('DB_USERNAME', 'root')),
+            'password' => env('DB_ACTIVITYLOG_PASSWORD', env('DB_PASSWORD', '')),
+            'charset' => env('DB_ACTIVITYLOG_CHARSET', env('DB_CHARSET', 'utf8')),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => env('DB_ACTIVITYLOG_SEARCH_PATH', 'public'),
+            'sslmode' => env('DB_ACTIVITYLOG_SSLMODE', env('DB_SSLMODE', 'prefer')),
         ],
 
         'sqlsrv' => [

@@ -1,0 +1,56 @@
+/*
+ * Three arcs of one ring: the element draws the top quarter, the pseudo-elements the other two,
+ * rotated into place. They only line up while all three share a box, so the pseudo-elements are
+ * inset to the element's own border box instead of being given a size of their own, and the
+ * element refuses to flex: squashed to a few pixels in a flex cell, the arcs fly apart and the
+ * spinner renders as loose fragments.
+ */
+.spinner {
+    --spinner-size: 16px;
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    flex: none;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 50%;
+    border: solid 2px transparent;
+    border-top-color: currentColor;
+    opacity: 0.25;
+    animation: spinner-animate 1s linear infinite;
+}
+
+.spinner:before,
+.spinner:after {
+    content: ' ';
+    position: absolute;
+    inset: -2px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: solid 2px transparent;
+    border-top-color: currentColor;
+}
+
+.spinner:before {
+    transform: rotateZ(120deg);
+}
+
+.spinner:after {
+    transform: rotateZ(240deg);
+}
+
+@keyframes spinner-animate {
+    0% {
+        transform: rotate(0);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}

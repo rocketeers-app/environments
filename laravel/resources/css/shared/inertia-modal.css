@@ -1,0 +1,80 @@
+/* The page behind a modal is blurred and washed out rather than dimmed. These rules sit
+   outside @layer on purpose: that beats the package's own backdrop:bg-black/75 utility
+   without needing !important. Only the bottom modal of a stack paints a backdrop — the
+   package marks the others backdrop:bg-transparent, and blurring each one would compound.
+   The scrim values live in shared/theme.css so Radix overlays blur by the same amount;
+   each var carries its literal fallback because ::backdrop only inherits from its
+   originating element in newer browsers. */
+.im-modal-dialog:not(.backdrop\:bg-transparent)::backdrop,
+.im-slideover-dialog:not(.backdrop\:bg-transparent)::backdrop {
+    background-color: var(--overlay-scrim, oklch(1 0 0 / 0.5));
+    backdrop-filter: blur(var(--overlay-blur, 6px)) saturate(0.9);
+}
+
+/* --card and --background are the same value in dark mode, so the panel can only stand out
+   if the scrim sits darker than it does. */
+html.dark .im-modal-dialog:not(.backdrop\:bg-transparent)::backdrop,
+html.dark .im-slideover-dialog:not(.backdrop\:bg-transparent)::backdrop {
+    background-color: var(--overlay-scrim, oklch(0.09 0 0 / 0.72));
+}
+
+/* Keep the scrim in step with the 160ms panel rise patched into the package, instead of
+   trailing behind it at the package's 300ms. */
+.im-modal-dialog::backdrop {
+    transition-duration: 150ms;
+}
+
+/* Same treatment for the non-native backdrop element (useNativeDialog: false). */
+.im-backdrop {
+    background-color: var(--overlay-scrim) !important;
+    backdrop-filter: blur(var(--overlay-blur)) saturate(0.9);
+}
+
+/* Native <dialog>: let clicks pass through the container/positioner layers so
+   they reach the <dialog> element itself, enabling click-outside-to-close.
+   Re-enable pointer events on the actual modal card. */
+.im-modal-dialog > .im-modal-container,
+.im-modal-dialog .im-modal-positioner,
+.im-slideover-dialog > .im-slideover-container,
+.im-slideover-dialog .im-slideover-positioner {
+    pointer-events: none;
+}
+
+.im-modal-dialog .im-modal-wrapper,
+.im-slideover-dialog .im-slideover-wrapper {
+    pointer-events: auto;
+}
+
+/* Every centered modal is at least 670px wide, so a size="sm" one (max-w-md) still reads as a
+   modal rather than a tooltip. This sits on the wrapper rather than the panel: the wrapper is
+   what justify-center centers and what carries the max-width, so widening the panel alone would
+   just overflow it to the right. min() keeps it inside the container's own width on narrow
+   viewports, where the wrapper is already w-full. */
+.im-modal-wrapper {
+    min-width: min(670px, 100%);
+}
+
+/* Env compare chain: show only the front-most modal. Hide the panel of a chain
+   modal (marked .env-compare-modal) while it is not on top of the stack, instead
+   of leaving it blurred-visible behind the child. We hide the panel only — not the
+   whole .im-dialog — so the base modal's ::backdrop keeps blurring the page
+   (in native-dialog mode only the first modal draws a backdrop). Scoped so other
+   modal chains keep the default stacked look. */
+.im-dialog[aria-hidden='true']:has(.env-compare-modal) .im-modal-wrapper {
+    display: none !important;
+}
+
+/* Env editors: hide the CodeMirror scrollbar while keeping the content scrollable. */
+.env-compare-modal .cm-scroller {
+    scrollbar-width: none;
+}
+.env-compare-modal .cm-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+/* Compare needs more room than the shared 7xl cap. Widen the wrapper instead of the
+   panel: the wrapper is what justify-center centers, so a panel forced past its parent's
+   width just overflows to the right and reads as off-center on narrow viewports. */
+.im-modal-wrapper:has(> .env-compare-wide) {
+    max-width: 92rem;
+}

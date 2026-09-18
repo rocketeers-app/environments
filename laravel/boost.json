@@ -1,0 +1,9 @@
+{
+    "agents": [
+        "claude_code",
+        "opencode"
+    ],
+    "mcp": true,
+    "nightwatch_mcp": false,
+    "sail": false
+}

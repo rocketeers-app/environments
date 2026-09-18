@@ -1,0 +1,28 @@
+/* Self-hosted variable fonts matching rocketeersapp.com: Inter (sans), Space Grotesk
+   (display), JetBrains Mono (mono). Bundled from resources/fonts so Vite hashes them
+   into the manifest — no third-party connection sits on the critical path, and the
+   <link rel="preload"> tags in the layouts resolve the same hashed URL via Vite::asset(). */
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../../fonts/inter-var-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('../../fonts/space-grotesk-var-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url('../../fonts/jetbrains-mono-var-latin.woff2') format('woff2');
+}

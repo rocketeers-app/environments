@@ -1,0 +1,32 @@
+/* Radix portaled overlays (Select, Popover, Tooltip, DropdownMenu) need an
+   explicit z-index so they stack above other fixed/absolute elements. */
+[data-radix-popper-content-wrapper] {
+    z-index: 200 !important;
+}
+
+@layer components {
+    /* Dropdown-style overlays only fade, so they never scale or slide. */
+    @keyframes dropdown-fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    :is(
+        [data-slot='select-content'],
+        [data-slot='popover-content'],
+        [data-slot='dropdown-menu-content'],
+        [data-slot='dropdown-menu-sub-content']
+    ) {
+        &[data-state='open'] {
+            animation: dropdown-fade 75ms ease-out;
+        }
+
+        &[data-state='closed'] {
+            animation: dropdown-fade 50ms ease-in reverse forwards;
+        }
+    }
+}

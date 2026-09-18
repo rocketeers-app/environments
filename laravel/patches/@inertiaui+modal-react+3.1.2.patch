@@ -1,0 +1,41 @@
+diff --git a/node_modules/@inertiaui/modal-react/dist/inertiaui-modal.js b/node_modules/@inertiaui/modal-react/dist/inertiaui-modal.js
+index 9d597b9..4ca6e42 100644
+--- a/node_modules/@inertiaui/modal-react/dist/inertiaui-modal.js
++++ b/node_modules/@inertiaui/modal-react/dist/inertiaui-modal.js
+@@ -832,24 +832,30 @@ var ModalContent = ({ modalContext, config, useNativeDialog, isFirstModal, onAft
+ 		if (!element) return;
+ 		setIsVisible(true);
+ 		await animate(element, [{
+-			transform: "translate3d(0, 1rem, 0) scale(0.95)",
++			transform: "translate3d(0, 0.75rem, 0)",
+ 			opacity: 0
+ 		}, {
+-			transform: "translate3d(0, 0, 0) scale(1)",
++			transform: "translate3d(0, 0, 0)",
+ 			opacity: 1
+-		}]);
++		}], {
++			duration: 160,
++			easing: "cubic-bezier(0.16, 1, 0.3, 1)"
++		});
+ 		setEntered(true);
+ 	}, []);
+ 	const animateOut = useCallback(async (element) => {
+ 		if (!element) return;
+ 		setIsVisible(false);
+ 		await animate(element, [{
+-			transform: "translate3d(0, 0, 0) scale(1)",
++			transform: "translate3d(0, 0, 0)",
+ 			opacity: 1
+ 		}, {
+-			transform: "translate3d(0, 1rem, 0) scale(0.95)",
++			transform: "translate3d(0, 0.5rem, 0)",
+ 			opacity: 0
+-		}]);
++		}], {
++			duration: 120,
++			easing: "in"
++		});
+ 		setIsRendered(false);
+ 		if (useNativeDialog && dialogRef.current) dialogRef.current.close();
+ 		onAfterLeave?.();

@@ -1,0 +1,613 @@
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+    --font-mono:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --container-8xl: 108rem;
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-table-border: var(--table-border);
+    --color-table-header: var(--table-header);
+    --color-tab-strip: var(--tab-strip);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.87 0 0);
+    --table-border: oklch(0.885 0 0);
+    --table-header: oklch(0.955 0 0);
+    --tab-strip: oklch(0.955 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --radius: 0.625rem;
+    --overlay-scrim: oklch(1 0 0 / 0.5);
+    --overlay-blur: 6px;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.87 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --table-border: oklch(0.31 0 0);
+    --table-header: oklch(0.205 0 0);
+    --tab-strip: oklch(0.1 0 0);
+    --overlay-scrim: oklch(0.09 0 0 / 0.72);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.985 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    h1,
+    h2,
+    h3,
+    [data-slot='card-title'] {
+        font-family: var(--font-display);
+        letter-spacing: -0.01em;
+    }
+
+    h1 {
+        letter-spacing: -0.02em;
+    }
+}
+
+/* A key cap standing 1px proud of the surface; on press it travels down into its own
+   well, so the seam under it closes and the light on it flips top-to-bottom. Shadows go
+   through Tailwind's --tw-shadow/--tw-inset-shadow slots because a `ring-*` utility
+   rewrites box-shadow wholesale and would otherwise erase the entire bevel on focus. */
+@utility bevel {
+    position: relative;
+    overflow: hidden;
+    background-image:
+        linear-gradient(
+            to right,
+            var(--bevel-edge-left) 0px,
+            var(--bevel-edge-left) 1px,
+            oklch(0 0 0 / 0) 1px,
+            oklch(0 0 0 / 0) calc(100% - 4px),
+            var(--bevel-band-right) calc(100% - 4px),
+            var(--bevel-band-right) calc(100% - 1px),
+            var(--bevel-edge-right) calc(100% - 1px)
+        ),
+        linear-gradient(
+            to bottom,
+            var(--bevel-face-top) 0px,
+            var(--bevel-face-top) 1px,
+            var(--bevel-face) 1px,
+            var(--bevel-face) calc(100% - 4px),
+            var(--bevel-band-bottom) calc(100% - 4px),
+            var(--bevel-band-bottom) calc(100% - 1px),
+            var(--bevel-edge-bottom) calc(100% - 1px)
+        );
+    --tw-inset-shadow:
+        inset 0 1px 0 0 var(--bevel-rim-top),
+        inset 1px 0 0 0 var(--bevel-rim-left),
+        inset -1px 0 0 0 var(--bevel-rim-right),
+        inset 0 0 0 1px var(--bevel-ring),
+        inset 0 -1px 0 0 var(--bevel-rim-bottom);
+    --tw-shadow:
+        0 1px 0 0 var(--bevel-seam), 0 2px 2px -1.5px var(--bevel-ambient);
+    box-shadow:
+        var(--tw-inset-shadow, 0 0 #0000),
+        var(--tw-inset-ring-shadow, 0 0 #0000),
+        var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow, 0 0 #0000);
+    text-shadow: 0 1px 0 var(--bevel-text);
+
+    &:not(:disabled, [aria-disabled='true']):is(
+            :active,
+            [data-pressed],
+            [data-state='open']
+        ) {
+        translate: 0 1px;
+        transition-duration: 0s;
+        --bevel-edge-left: var(--bevel-press-edge-left);
+        --bevel-band-right: var(--bevel-press-face);
+        --bevel-edge-right: var(--bevel-press-edge-right);
+        --bevel-face-top: var(--bevel-press-face-top);
+        --bevel-face: var(--bevel-press-face);
+        --bevel-band-bottom: var(--bevel-press-face);
+        --bevel-edge-bottom: var(--bevel-press-bounce);
+        --tw-inset-shadow:
+            inset 0 2px 3px -1px var(--bevel-press-well),
+            inset 1px 0 0 0 var(--bevel-press-rim-left),
+            inset -1px 0 0 0 var(--bevel-press-rim-right),
+            inset 0 0 0 1px var(--bevel-ring),
+            inset 0 -1px 0 0 var(--bevel-press-rim-bottom);
+        --tw-shadow:
+            0 -1px 0 0 var(--bevel-press-well), 0 0 0 0 var(--bevel-ambient);
+        text-shadow: none;
+    }
+}
+
+@utility bevel-light {
+    --bevel-edge-left: oklch(1 0 0 / 0.55);
+    --bevel-band-right: oklch(0.61 0.006 80 / 0.085);
+    --bevel-edge-right: oklch(0.55 0.008 78 / 0.185);
+    --bevel-face-top: oklch(1 0 0 / 0.9);
+    --bevel-face: oklch(1 0 0 / 0.64);
+    --bevel-band-bottom: oklch(0.61 0.006 80 / 0.11);
+    --bevel-edge-bottom: oklch(0.53 0.008 78 / 0.22);
+    --bevel-rim-top: oklch(1 0 0);
+    --bevel-rim-left: oklch(1 0 0 / 0.7);
+    --bevel-rim-right: oklch(0.59 0.008 78 / 0.31);
+    --bevel-ring: oklch(0.79 0.004 85 / 0.42);
+    --bevel-rim-bottom: oklch(0.57 0.008 78 / 0.4);
+    --bevel-seam: oklch(0.6 0.005 78 / 0.32);
+    --bevel-ambient: oklch(0.52 0.006 76 / 0.22);
+    --bevel-text: oklch(1 0 0 / 0.85);
+    --bevel-press-edge-left: oklch(0.56 0.008 78 / 0.13);
+    --bevel-press-edge-right: oklch(1 0 0 / 0.4);
+    --bevel-press-face-top: oklch(0.56 0.008 78 / 0.32);
+    --bevel-press-face: oklch(0.62 0.006 78 / 0.05);
+    --bevel-press-bounce: oklch(1 0 0 / 0.5);
+    --bevel-press-well: oklch(0.52 0.006 76 / 0.3);
+    --bevel-press-rim-left: oklch(0.62 0.008 78 / 0.22);
+    --bevel-press-rim-right: oklch(1 0 0 / 0.45);
+    --bevel-press-rim-bottom: oklch(1 0 0 / 0.6);
+}
+
+@utility bevel-dark {
+    --bevel-edge-left: oklch(1 0 0 / 0.13);
+    --bevel-band-right: oklch(0 0 0 / 0.12);
+    --bevel-edge-right: oklch(0 0 0 / 0.23);
+    --bevel-face-top: oklch(1 0 0 / 0.17);
+    --bevel-face: oklch(1 0 0 / 0.07);
+    --bevel-band-bottom: oklch(0 0 0 / 0.12);
+    --bevel-edge-bottom: oklch(0 0 0 / 0.23);
+    --bevel-rim-top: oklch(1 0 0 / 0.3);
+    --bevel-rim-left: oklch(1 0 0 / 0.14);
+    --bevel-rim-right: oklch(0 0 0 / 0.3);
+    --bevel-ring: oklch(0 0 0 / 0.26);
+    --bevel-rim-bottom: oklch(0 0 0 / 0.3);
+    --bevel-seam: oklch(0.18 0 0 / 0.5);
+    --bevel-ambient: oklch(0.15 0 0 / 0.42);
+    --bevel-text: oklch(0 0 0 / 0.32);
+    --bevel-press-edge-left: oklch(0 0 0 / 0.2);
+    --bevel-press-edge-right: oklch(1 0 0 / 0.12);
+    --bevel-press-face-top: oklch(0 0 0 / 0.34);
+    --bevel-press-face: oklch(0 0 0 / 0.1);
+    --bevel-press-bounce: oklch(1 0 0 / 0.14);
+    --bevel-press-well: oklch(0 0 0 / 0.44);
+    --bevel-press-rim-left: oklch(0 0 0 / 0.24);
+    --bevel-press-rim-right: oklch(1 0 0 / 0.12);
+    --bevel-press-rim-bottom: oklch(1 0 0 / 0.16);
+}
+
+/* Emerald-tinted rims: pure-black bevel edges read as grime on a saturated fill. */
+@utility bevel-success {
+    --bevel-edge-left: oklch(1 0 0 / 0.18);
+    --bevel-band-right: oklch(0.38 0.077 169 / 0.1);
+    --bevel-edge-right: oklch(0.38 0.077 169 / 0.18);
+    --bevel-face-top: oklch(1 0 0 / 0.22);
+    --bevel-face: oklch(1 0 0 / 0.08);
+    --bevel-band-bottom: oklch(0.38 0.077 169 / 0.1);
+    --bevel-edge-bottom: oklch(0.38 0.077 169 / 0.18);
+    --bevel-rim-top: oklch(1 0 0 / 0.38);
+    --bevel-rim-left: oklch(1 0 0 / 0.18);
+    --bevel-rim-right: oklch(0.38 0.077 169 / 0.2);
+    --bevel-ring: oklch(0.38 0.077 169 / 0.16);
+    --bevel-rim-bottom: oklch(0.38 0.077 169 / 0.24);
+    --bevel-seam: oklch(0.43 0.095 167 / 0.3);
+    --bevel-ambient: oklch(0.43 0.095 167 / 0.28);
+    --bevel-text: oklch(0.38 0.077 169 / 0.3);
+    --bevel-press-edge-left: oklch(0.38 0.077 169 / 0.16);
+    --bevel-press-edge-right: oklch(1 0 0 / 0.14);
+    --bevel-press-face-top: oklch(0.38 0.077 169 / 0.26);
+    --bevel-press-face: oklch(0.38 0.077 169 / 0.08);
+    --bevel-press-bounce: oklch(1 0 0 / 0.16);
+    --bevel-press-well: oklch(0.38 0.077 169 / 0.34);
+    --bevel-press-rim-left: oklch(0.38 0.077 169 / 0.2);
+    --bevel-press-rim-right: oklch(1 0 0 / 0.14);
+    --bevel-press-rim-bottom: oklch(1 0 0 / 0.18);
+}
+
+/* Red-tinted rims over a light red fill: the white face of bevel-light washes a
+   red-50 surface back to white, so the sheen is dialled down and the shadows tinted. */
+@utility bevel-alert {
+    --bevel-edge-left: oklch(1 0 0 / 0.5);
+    --bevel-band-right: oklch(0.505 0.213 27.5 / 0.06);
+    --bevel-edge-right: oklch(0.505 0.213 27.5 / 0.14);
+    --bevel-face-top: oklch(1 0 0 / 0.65);
+    --bevel-face: oklch(1 0 0 / 0.18);
+    --bevel-band-bottom: oklch(0.505 0.213 27.5 / 0.07);
+    --bevel-edge-bottom: oklch(0.505 0.213 27.5 / 0.16);
+    --bevel-rim-top: oklch(1 0 0 / 0.85);
+    --bevel-rim-left: oklch(1 0 0 / 0.45);
+    --bevel-rim-right: oklch(0.505 0.213 27.5 / 0.16);
+    --bevel-ring: oklch(0.645 0.19 26 / 0.16);
+    --bevel-rim-bottom: oklch(0.505 0.213 27.5 / 0.22);
+    --bevel-seam: oklch(0.505 0.213 27.5 / 0.16);
+    --bevel-ambient: oklch(0.505 0.213 27.5 / 0.18);
+    --bevel-text: oklch(1 0 0 / 0.7);
+    --bevel-press-edge-left: oklch(0.505 0.213 27.5 / 0.14);
+    --bevel-press-edge-right: oklch(1 0 0 / 0.35);
+    --bevel-press-face-top: oklch(0.505 0.213 27.5 / 0.24);
+    --bevel-press-face: oklch(0.505 0.213 27.5 / 0.06);
+    --bevel-press-bounce: oklch(1 0 0 / 0.45);
+    --bevel-press-well: oklch(0.505 0.213 27.5 / 0.26);
+    --bevel-press-rim-left: oklch(0.505 0.213 27.5 / 0.18);
+    --bevel-press-rim-right: oklch(1 0 0 / 0.4);
+    --bevel-press-rim-bottom: oklch(1 0 0 / 0.5);
+
+    &:where(.dark *) {
+        --bevel-edge-left: oklch(1 0 0 / 0.08);
+        --bevel-band-right: oklch(0 0 0 / 0.14);
+        --bevel-edge-right: oklch(0 0 0 / 0.26);
+        --bevel-face-top: oklch(0.808 0.114 19.6 / 0.16);
+        --bevel-face: oklch(1 0 0 / 0.03);
+        --bevel-band-bottom: oklch(0 0 0 / 0.14);
+        --bevel-edge-bottom: oklch(0 0 0 / 0.26);
+        --bevel-rim-top: oklch(0.808 0.114 19.6 / 0.24);
+        --bevel-rim-left: oklch(0.808 0.114 19.6 / 0.1);
+        --bevel-rim-right: oklch(0 0 0 / 0.28);
+        --bevel-ring: oklch(0.505 0.213 27.5 / 0.3);
+        --bevel-rim-bottom: oklch(0 0 0 / 0.32);
+        --bevel-seam: oklch(0.18 0 0 / 0.5);
+        --bevel-ambient: oklch(0.15 0 0 / 0.45);
+        --bevel-text: oklch(0 0 0 / 0.35);
+        --bevel-press-edge-left: oklch(0 0 0 / 0.22);
+        --bevel-press-edge-right: oklch(0.808 0.114 19.6 / 0.1);
+        --bevel-press-face-top: oklch(0 0 0 / 0.36);
+        --bevel-press-face: oklch(0 0 0 / 0.12);
+        --bevel-press-bounce: oklch(0.808 0.114 19.6 / 0.12);
+        --bevel-press-well: oklch(0 0 0 / 0.46);
+        --bevel-press-rim-left: oklch(0 0 0 / 0.26);
+        --bevel-press-rim-right: oklch(0.808 0.114 19.6 / 0.1);
+        --bevel-press-rim-bottom: oklch(0.808 0.114 19.6 / 0.14);
+    }
+}
+
+/* The button bevel as a tab cap: sheen and rim on three sides, the seam erased
+   in the surface colour so the active tab still runs into the page below it. */
+@utility bevel-tab {
+    background-image: linear-gradient(
+        to bottom,
+        oklch(1 0 0 / 0.9) 0px,
+        oklch(1 0 0 / 0.9) 1px,
+        oklch(1 0 0 / 0.5) 1px,
+        oklch(1 0 0 / 0) 100%
+    );
+    --tw-inset-shadow:
+        inset 0 1px 0 0 oklch(1 0 0), inset 0 -1px 0 0 var(--sidebar),
+        inset 0 0 0 1px oklch(0.79 0.004 85 / 0.42);
+    --tw-shadow: 0 -1px 2px -1px oklch(0.52 0.006 76 / 0.16);
+    box-shadow:
+        var(--tw-inset-shadow, 0 0 #0000),
+        var(--tw-inset-ring-shadow, 0 0 #0000),
+        var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow, 0 0 #0000);
+    text-shadow: 0 1px 0 oklch(1 0 0 / 0.85);
+
+    &:where(.dark *) {
+        background-image: linear-gradient(
+            to bottom,
+            oklch(1 0 0 / 0.16) 0px,
+            oklch(1 0 0 / 0.16) 1px,
+            oklch(1 0 0 / 0.06) 1px,
+            oklch(1 0 0 / 0) 100%
+        );
+        --tw-inset-shadow:
+            inset 0 1px 0 0 oklch(1 0 0 / 0.22),
+            inset 0 -1px 0 0 var(--sidebar), inset 0 0 0 1px oklch(1 0 0 / 0.07);
+        --tw-shadow: 0 -1px 2px -1px oklch(0 0 0 / 0.35);
+        text-shadow: 0 1px 0 oklch(0 0 0 / 0.3);
+    }
+}
+
+/* A recess rather than a cap, so a trigger wearing it does not travel on press — it
+   deepens: the top shade thickens and the floor bounce brightens while its menu is open. */
+@utility bevel-field {
+    --bevel-field-shade: oklch(0.52 0.006 76 / 0.18);
+    --bevel-field-shade-open: oklch(0.52 0.006 76 / 0.3);
+    --bevel-field-lip: oklch(1 0 0 / 0.5);
+    --bevel-field-lip-open: oklch(1 0 0 / 0.7);
+    --bevel-field-seam: oklch(1 0 0 / 0.9);
+    --bevel-field-wash: oklch(0.56 0.008 78 / 0.07);
+    --bevel-field-wash-open: oklch(0.56 0.008 78 / 0.14);
+    background-image: linear-gradient(
+        to bottom,
+        var(--bevel-field-wash) 0px,
+        var(--bevel-field-wash) 2px,
+        oklch(0 0 0 / 0) 2px
+    );
+    --tw-inset-shadow:
+        inset 0 1px 2px -1px var(--bevel-field-shade),
+        inset 0 -1px 0 0 var(--bevel-field-lip);
+    --tw-shadow: 0 1px 0 0 var(--bevel-field-seam);
+    box-shadow:
+        var(--tw-inset-shadow, 0 0 #0000),
+        var(--tw-inset-ring-shadow, 0 0 #0000),
+        var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow, 0 0 #0000);
+
+    &:where(.dark *) {
+        --bevel-field-shade: oklch(0 0 0 / 0.42);
+        --bevel-field-shade-open: oklch(0 0 0 / 0.58);
+        --bevel-field-lip: oklch(1 0 0 / 0.06);
+        --bevel-field-lip-open: oklch(1 0 0 / 0.12);
+        --bevel-field-seam: oklch(1 0 0 / 0.05);
+        --bevel-field-wash: oklch(0 0 0 / 0.26);
+        --bevel-field-wash-open: oklch(0 0 0 / 0.4);
+    }
+
+    &:not(:disabled, [aria-disabled='true']):is(
+            button:active,
+            [data-state='open']
+        ) {
+        transition-duration: 0s;
+        --bevel-field-wash: var(--bevel-field-wash-open);
+        --tw-inset-shadow:
+            inset 0 2px 3px -1px var(--bevel-field-shade-open),
+            inset 0 -1px 0 0 var(--bevel-field-lip-open);
+    }
+}
+
+@utility bevel-panel {
+    --tw-inset-shadow:
+        inset 0 1px 0 0 oklch(1 0 0),
+        inset 0 -1px 0 0 oklch(0.6 0.008 78 / 0.22);
+    --tw-shadow:
+        0 1px 0 0 oklch(0.6 0.005 78 / 0.18),
+        0 3px 6px -3px oklch(0.45 0.01 76 / 0.22),
+        0 12px 28px -10px oklch(0.4 0.01 76 / 0.35);
+    box-shadow:
+        var(--tw-inset-shadow, 0 0 #0000),
+        var(--tw-inset-ring-shadow, 0 0 #0000),
+        var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow, 0 0 #0000);
+
+    &:where(.dark *) {
+        --tw-inset-shadow:
+            inset 0 1px 0 0 oklch(1 0 0 / 0.16),
+            inset 0 -1px 0 0 oklch(0 0 0 / 0.4);
+        --tw-shadow:
+            0 1px 0 0 oklch(0 0 0 / 0.5), 0 3px 6px -3px oklch(0 0 0 / 0.5),
+            0 14px 32px -10px oklch(0 0 0 / 0.7);
+    }
+}
+
+/* A table sunk into a grey tray: the column headings sit on the tray and the rows are a
+   white panel set into it. A panel corner can only round on a cell, so the table goes
+   border-separate and every rule moves from the row onto its cells; a row's own colour
+   is read through --table-row-bg so hover, selection and tints still land. A filter bar
+   is a second white panel set into the same tray, and a frame nested inside collapses. */
+@utility table-frame {
+    padding: var(--table-frame-inset, 4px);
+    border-radius: var(--radius);
+    background-color: var(--table-header);
+
+    & .table-frame {
+        padding: 0;
+    }
+
+    & > [data-slot='table-filter'] {
+        margin-bottom: var(--table-frame-inset, 4px);
+    }
+
+    & table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    & thead tr {
+        border: 0;
+    }
+
+    & thead th {
+        position: relative;
+    }
+
+    & thead th:first-child {
+        padding-left: calc(var(--table-cell-inline, 1rem) + 1px);
+    }
+
+    & thead th:last-child {
+        padding-right: calc(var(--table-cell-inline, 1rem) + 1px);
+    }
+
+    & thead th:not(:last-child, [data-spacer])::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 1px;
+        height: var(--table-head-rule, 1rem);
+        transform: translateY(-50%);
+        background-color: var(--table-border);
+    }
+
+    & tbody td {
+        background-color: var(--table-row-bg, var(--card));
+        border-bottom: 1px solid var(--border);
+    }
+
+    & tbody tr:first-child > td {
+        border-top: 1px solid var(--table-border);
+    }
+
+    & tbody tr:last-child > td {
+        border-bottom-color: var(--table-border);
+    }
+
+    & tbody td:first-child {
+        border-left: 1px solid var(--table-border);
+    }
+
+    & tbody td:last-child {
+        border-right: 1px solid var(--table-border);
+    }
+
+    & tbody tr:first-child > td:first-child {
+        border-top-left-radius: var(--radius-sm);
+    }
+
+    & tbody tr:first-child > td:last-child {
+        border-top-right-radius: var(--radius-sm);
+    }
+
+    & tbody tr:last-child > td:first-child {
+        border-bottom-left-radius: var(--radius-sm);
+    }
+
+    & tbody tr:last-child > td:last-child {
+        border-bottom-right-radius: var(--radius-sm);
+    }
+
+    & tbody tr:hover {
+        --table-row-bg: color-mix(in oklab, var(--muted) 25%, var(--card));
+    }
+
+    & tbody tr[data-clickable]:hover,
+    & tbody tr[data-clickable]:focus-visible,
+    & tbody tr[data-expanded] {
+        --table-row-bg: color-mix(in oklab, var(--muted) 50%, var(--card));
+    }
+
+    & tbody tr[data-state='selected'] {
+        --table-row-bg: var(--muted);
+    }
+}
+
+/* The same sunk table one size down, for the dashboard widgets: a tighter tray, shorter
+   headings and rows that still fit a label with a subtitle under it. */
+@utility table-frame-sm {
+    --table-frame-inset: 3px;
+    --table-cell-inline: 0.75rem;
+    --table-head-rule: 0.75rem;
+
+    & thead th {
+        height: 1.75rem;
+        padding-inline: 0.75rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    & tbody td {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* The one scrim every overlay surface uses — the page behind is blurred and washed out
+   rather than dimmed. The Inertia modal ::backdrop reads the same two variables
+   (shared/inertia-modal.css), so all overlays blur by the same amount. */
+@utility overlay-scrim {
+    background-color: var(--overlay-scrim);
+    backdrop-filter: blur(var(--overlay-blur)) saturate(0.9);
+}
