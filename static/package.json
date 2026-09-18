@@ -1,0 +1,7 @@
+{
+  "name": "rocketeers-static",
+  "private": true,
+  "scripts": {
+    "build": "echo nothing to build"
+  }
+}
