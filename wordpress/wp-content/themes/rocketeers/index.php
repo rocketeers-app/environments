@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#060a12" media="(prefers-color-scheme: dark)">
+    <meta name="robots" content="noindex,nofollow">
+    <title>WordPress · Rocketeers</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%20width='32'%20height='32'%3E%3Crect%20width='32'%20height='32'%20fill='%23060a12'/%3E%3Cpath%20transform='rotate(45%2016%2016)'%20d='M16%208%2022%2021%2016%2018%2010%2021Z'%20fill='%2334d399'%20stroke='%2334d399'%20stroke-width='2.5'%20stroke-linejoin='round'%20stroke-linecap='round'/%3E%3C/svg%3E">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body { height: 100%; margin: 0; }
+
+        :root {
+            color-scheme: light dark;
+            --bg: #f4f7fb;
+            --glow: rgba(16, 185, 129, 0.10);
+            --heading: #0f172a;
+            --muted: rgba(15, 23, 42, 0.55);
+            --logo: #059669;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #060a12;
+                --glow: rgba(16, 185, 129, 0.12);
+                --heading: #fff;
+                --muted: rgba(255, 255, 255, 0.55);
+                --logo: #34d399;
+            }
+        }
+
+        body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: var(--bg);
+            background-image: radial-gradient(50rem 40rem at 50% -8rem, var(--glow), transparent 60%);
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        .logo {
+            width: 3.25rem;
+            height: 3.25rem;
+            margin: 0 auto 1.75rem;
+            color: var(--logo);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.25rem, 7vw, 3.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: var(--heading);
+        }
+
+        p {
+            margin: 1rem 0 0;
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        p b {
+            font-weight: 600;
+            color: var(--heading);
+        }
+
+        p u {
+            text-decoration-color: var(--logo);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path transform="rotate(45 12 12)" d="M12 3 19 19 12 15 5 19Z"/>
+        </svg>
+        <h1>Rocketeers</h1>
+        <p><b><u>WordPress</u></b> is ready for take off!</p>
+    </main>
+</body>
+</html>
