@@ -1,0 +1,14 @@
+{
+  "name": "rocketeers-nextjs-pnpm",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node .next/standalone/server.js"
+  },
+  "dependencies": {
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
