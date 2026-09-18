@@ -1,0 +1,10 @@
+{
+  "name": "rocketeers-static-hugo",
+  "private": true,
+  "scripts": {
+    "build": "hugo --minify"
+  },
+  "devDependencies": {
+    "hugo-extended": "^0.166.0"
+  }
+}
