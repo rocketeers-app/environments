@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Craft console bootstrap.
+ */
+
+define('CRAFT_BASE_PATH', __DIR__);
+
+require CRAFT_BASE_PATH.'/vendor/autoload.php';
+
+$dotenv = CRAFT_BASE_PATH.'/.env';
+
+if (file_exists($dotenv)) {
+    Dotenv\Dotenv::createUnsafeImmutable(CRAFT_BASE_PATH)->safeLoad();
+}
+
+$app = require CRAFT_BASE_PATH.'/vendor/craftcms/cms/bootstrap/console.php';
+
+exit($app->run());
