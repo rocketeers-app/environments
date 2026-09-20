@@ -1,0 +1,8 @@
+{
+  "name": "rocketeers-bun",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun run server.ts"
+  }
+}

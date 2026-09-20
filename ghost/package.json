@@ -1,0 +1,10 @@
+{
+  "name": "rocketeers-ghost",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ghost": "^5.109.3"
+  }
+}

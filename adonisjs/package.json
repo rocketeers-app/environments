@@ -1,0 +1,21 @@
+{
+  "name": "rocketeers-adonisjs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ace build",
+    "start": "node build/bin/server.js"
+  },
+  "imports": {
+    "#start/*": "./start/*.js",
+    "#config/*": "./config/*.js"
+  },
+  "dependencies": {
+    "@adonisjs/core": "^6.17.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^7.8.2",
+    "typescript": "~5.7.2"
+  }
+}

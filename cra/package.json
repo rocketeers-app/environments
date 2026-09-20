@@ -1,0 +1,13 @@
+{
+  "name": "rocketeers-cra",
+  "private": true,
+  "browserslist": { "production": [">0.2%", "not dead"], "development": ["last 1 chrome version"] },
+  "scripts": {
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1"
+  }
+}
