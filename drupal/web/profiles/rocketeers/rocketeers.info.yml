@@ -1,0 +1,8 @@
+name: Rocketeers
+type: profile
+description: 'Installs the Rocketeers placeholder page and nothing else.'
+core_version_requirement: ^11
+install:
+  - rocketeers_placeholder
+themes:
+  - claro

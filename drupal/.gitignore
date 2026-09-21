@@ -1,0 +1,33 @@
+vendor/
+.env
+private/
+config/sync/.htaccess
+
+# Written by drupal/core-composer-scaffold on every composer install, along with one nested
+# .gitignore per directory it scaffolds into.
+/.editorconfig
+/.gitattributes
+/recipes/
+/web/.csslintrc
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitignore
+/web/.ht.router.php
+/web/.htaccess
+/web/autoload.php
+/web/core/
+/web/index.php
+/web/modules/.gitignore
+/web/modules/contrib/
+/web/profiles/.gitignore
+/web/profiles/contrib/
+/web/robots.txt
+/web/sites/.gitignore
+/web/sites/default/default.services.yml
+/web/sites/default/default.settings.php
+/web/sites/default/files/
+/web/sites/default/settings.local.php
+/web/themes/.gitignore
+/web/themes/contrib/
+/web/update.php
+/web/web.config

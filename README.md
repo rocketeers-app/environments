@@ -20,6 +20,7 @@ detects the type from that folder and deploys only that folder.
 | `statamic` | Statamic | Deploy Laravel app |
 | `symfony` | Symfony | Deploy Symfony app |
 | `craft` | Craft CMS | Deploy Craft CMS site |
+| `drupal` | Drupal | Deploy Drupal site |
 | `wordpress` | WordPress | — (managed on the server, see its README) |
 | `php` | PHP | a custom task, e.g. `true` (there is nothing to build) |
 
@@ -96,12 +97,13 @@ A push only redeploys the environments whose folder it changed.
 
 ## Folders that need one setup step
 
-Most folders render the placeholder page on the first deploy. These four are real CMSes and
+Most folders render the placeholder page on the first deploy. These five are real CMSes and
 need one action afterwards; each has its own README with the detail.
 
 | Folder | What it still needs |
 |---|---|
 | `craft` | `php craft install` once, against the managed database |
+| `drupal` | `drush site:install rocketeers` once, against the managed database |
 | `ghost` | nothing, but it renders its own theme rather than the placeholder page |
 | `strapi` | an admin user at `/admin`; the placeholder page is at `/home`, since Strapi owns `/` |
 | `payload` | an admin user at `/admin` |
@@ -126,7 +128,7 @@ detection or the deploy script, so those branches get exercised too.
 one with `express` in `package.json` stays **Node.js** while the one without becomes **Bun**. A
 lockfile alone is what selects the runtime; a framework in `package.json` always wins.
 
-Among the new folders only `craft` commits a lockfile. The others rely on the deploy task's
+Among the new folders only `craft` and `drupal` commit a lockfile. The others rely on the deploy task's
 `npm install` / `mix deps.get` / `mvnw package` fallback, which is the branch a repository
 without a committed lockfile takes anyway.
 

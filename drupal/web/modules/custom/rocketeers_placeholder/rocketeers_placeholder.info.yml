@@ -1,0 +1,5 @@
+name: 'Rocketeers placeholder'
+type: module
+description: 'Serves the Rocketeers placeholder page at /placeholder, which settings.php pins as the front page.'
+package: Rocketeers
+core_version_requirement: ^11
