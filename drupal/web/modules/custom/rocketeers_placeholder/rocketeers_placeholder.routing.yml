@@ -1,0 +1,7 @@
+rocketeers_placeholder.page:
+  path: '/placeholder'
+  defaults:
+    _controller: '\Drupal\rocketeers_placeholder\Controller\PlaceholderController::page'
+    _title: 'Rocketeers'
+  requirements:
+    _access: 'TRUE'
